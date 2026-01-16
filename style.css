@@ -1,0 +1,1554 @@
+/*variables*/
+:root {
+  --primary-white: #FFFFFF;
+  --primary-blue: #2B7FFF;
+  --primary-dark-blue: #011C44;
+  --secondary-hard-grey: #4A4A4A;
+  --secondary-medium-grey: #4A4A4A;
+  --secondary-light-grey: #747272;
+  --secondary-dark-blue: #011F4A;
+  --secondary-yellow: #FFD02B;
+}
+
+/*Fonts*/
+.roboto {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.play-regular {
+  font-family: "Play", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.play-bold {
+  font-family: "Play", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/*------------------------------*/
+
+* {
+  box-sizing: border-box;
+}
+
+body { 
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+main, footer, section {
+   max-width: 1440px;
+   margin: 0 auto;
+   width: 100%;
+}
+
+/*-------Header------*/
+
+header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 106px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /*  змінив: було space-between, тепер flex-start щоб уникнути зайвого простору справа */
+  margin: 0;
+  padding: 0; /*  додав: щоб прибрати зайві внутрішні відступи */
+  background-color: rgba(255, 255, 255, 0.24);
+  backdrop-filter: blur(5px);
+  z-index: 10;
+  box-sizing: border-box; /*  додав: щоб падінги враховувались у ширині */
+}
+
+.header-content-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 100%;
+    width: 100%;
+    min-width: 0;
+    max-width: 1239px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .header-content-container {
+    max-width: 100%; /* 🔄 щоб не перевищував viewport */
+    padding: 0 12px; /* 🔄 менші пeдінги */
+    gap: 1.5vw; /* 🔄 адаптивний gap */
+}
+}
+
+.logo {
+    height: 42px;
+    width: 74px;
+    text-decoration: none;
+}
+
+.logo h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 22px;
+    color: var(--primary-blue);
+    font-family: "Play", sans-serif;
+    font-weight: 700;
+}
+
+/* Hidden by default (desktop & tablet) */
+.burger-btn {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+nav {
+    height: 42px;
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--primary-dark-blue);
+}
+
+nav li:first-of-type a {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  color: var(--primary-blue);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: clamp(12px, 6vw, 56px);
+  }
+
+.soc-media {
+    width: auto;
+    gap: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: space-between;
+    color: var(--primary-dark-blue);
+}
+
+@media (max-width: 1024px) {
+  .soc-media {
+    margin-right: 0;   /* прибрав зайвий відступ */
+    justify-content: flex-end; /* притиснув іконки до правого краю */
+    gap: 8px;          /* Менший gap */
+  }
+}
+
+@media (max-width: 1024px) {
+  .soc-media svg {
+    width: calc(32px + 0.5vw);
+    height: auto;
+  }
+}
+
+.soc-media svg {
+    cursor: pointer;
+    color: var(--primary-dark-blue);
+}
+
+
+/*-----------Hero-------------*/
+
+.hero {
+    height: 100vh;
+    max-width: 100%;
+    background-image: url("images/Hero-back-2-2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-content {
+  min-height: calc(100vh - 106px);
+  padding: 100px 300px 0 0;   /* 🔄 зменшив падінг справа/зліва */
+  margin-left: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 529px;       /* 🔄 замінив width на max-width */
+  text-align: left;
+  gap: 10px;
+  box-sizing: border-box; /* 🔄 додав для коректного врахування падінгів */
+}
+
+@media (max-width: 1024px) {
+  .hero-content {
+    margin-left: 0;
+    padding: 80px 20px 0 100px;
+    max-width: 461px;
+  }
+}
+
+.hero-headline {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--primary-dark-blue);
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 1024px) {
+  .hero-headline {
+    font-size: 26px;
+  }
+}
+
+.hero-logo {
+    font-family: "Play", sans-serif;
+    font-weight: 700;
+    font-size: 140px;
+    color: var(--primary-blue);
+    padding: 0;
+    margin: 0;
+    margin-bottom: 8px;
+    line-height: 110px;
+}
+
+.order-call-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 16px 32px;
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary-white);
+    background-color: var(--primary-blue);
+    border: none;
+    border-radius: 32px;
+    text-decoration: none;
+    text-align: center;
+}
+
+@media (max-width: 1024px) {
+    .order-call-btn {
+    font-size: 28px;
+  }
+}
+
+.note {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: var(--secondary-medium-grey);
+    margin: 0;
+    padding: 0 0 0 8px;
+    width: 238px;
+    height: 36px;
+}
+
+@media (max-width: 1024px) {
+  .note {
+    font-size: 16px;
+    width: auto;
+  }
+}
+
+/*-----------About-us-------------*/
+
+#about-us {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.about-us-text-content {
+    display: flex;
+    padding: 50px 11px 0 0;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    width: 709px;
+    text-align: start;
+    gap: 10px;
+    margin: 7vw;
+}
+.about-us-title {
+  font-size: 64px;
+  line-height: 1.2;
+  font-family: "Play", sans-serif;
+  font-weight: 700;
+}
+.about-us-title .line-1 {
+  color: var(--secondary-dark-blue);
+}
+.word-dark {
+  color: var(--primary-dark-blue);
+}
+.word-light {
+  color: var(--primary-blue);
+}
+
+.about-us-description {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.5;
+  font-family: "Roboto", sans-serif;
+  color: var(--primary-dark-blue);
+  margin-top: 16px;
+}
+
+.about-us-image-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin: 4vw 0 0 0;
+    width: 54vw;
+}
+
+.photo-before {
+  height: 327px;
+  width: 327px;
+  align-self: flex-start;
+  margin-left: 80px;
+}
+.photo-after {
+  height: 327px;
+  width: 327px;
+  align-self: flex-end;
+  margin: 40px 160px 0 0;
+}
+
+@media (max-width: 1024px) {
+  .photo-before {
+    margin: 0 0% 0 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .photo-after {
+    margin-right: 38%;
+  }
+}
+
+.about-us-image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.decorative-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.big-star {
+  position: absolute;
+  top: 27.8vw;
+  left: 14.6vw;
+}
+
+.medium-star {
+  position: absolute;
+  top: 7.6vw;
+  left: 34vw;
+}
+
+.small-star {
+  position: absolute;
+  top: 22.2vw;
+  left: 34.7vw;
+}
+
+@media (max-width: 1024px) {
+  .big-star {
+    top: 35vw;
+    left: 8vw;
+  }
+
+  .medium-star {
+    top: 9vw;
+    left: 31vw;
+  }
+
+  .small-star {
+    left: 32vw;
+  }
+}
+
+
+/*-----------Why-us-------------*/
+#why-us {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 600px;
+    background-image: url("images/why-us-background.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 140%;
+    background-position-x: -290px;
+}
+
+.why-us-content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.why-us-title {
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 70px;
+}
+
+.why-us-line-1 {
+  font-family: Play, sans-serif;
+  font-weight: 700;
+  font-size: 64px;
+  color: var(--primary-dark-blue);
+}
+
+.why-us-line-2 {
+  font-family: Play, sans-serif;
+  font-weight: 700;
+  font-size: 64px;
+  color: var(--primary-blue);
+}
+
+.boxes-container {
+    display: flex;
+    justify-content: center;
+    gap: 6vw;
+    width: 100%;
+    padding: 0 2vw 0 2vw;
+}
+
+.box-1, .box-2, .box-3 {
+    display: inline-block;
+    width: 316px;
+    height: 181px;    
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--primary-dark-blue);
+    background-color: var(--primary-white);
+    border: none;
+    border-radius: 32px;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 0px 4px 4px 0px rgba(168, 198, 245, 0.38);
+}
+
+.boxes-container img {
+    margin: 31px 0 10px 0;
+}
+
+.boxes-container p {
+  justify-content: center;
+  align-items: center;
+  margin: 0 32px 24px 32px;
+}
+
+/*-----------Our Procedures-------------*/
+#procedures {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 900px;
+    background-color: var(--primary-white);
+}
+
+.procedures-title {
+  text-align: center;
+  white-space: nowrap;
+  max-width: 100%;
+  margin-bottom: 48px;
+}
+
+.procedures-word-1 {
+  font-family: "Play", sans-serif;
+  font-weight: 700;
+  font-size: 64px;
+  color: var(--primary-dark-blue);
+}
+
+.procedures-word-2 {
+  font-family: "Play", sans-serif;
+  font-weight: 700;
+  font-size: 64px;
+  color: var(--primary-blue);
+}
+
+.procedures-cards-container {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+}
+
+.procedure-card-1,
+.procedure-card-2,
+.procedure-card-3 {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: end;
+  border-radius: 0 16px 0 16px;
+}
+
+  .procedure-card-1 img,
+  .procedure-card-2 img,
+  .procedure-card-3 img {
+    display: block;
+    width: auto;
+    height: 100%;
+    border-radius: 0 121px 0 121px;
+}
+
+@media (max-width: 1109px) {
+  .procedure-card-1 img,
+  .procedure-card-2 img,
+  .procedure-card-3 img {
+height: 80%;
+width: auto;  
+}
+}
+
+.procedure-card-1 span,
+.procedure-card-2 span,
+.procedure-card-3 span {
+  position: absolute;
+  width: 152px;
+  font-family: "Roboto", sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 26px;
+  text-align: center;
+  color: var(--primary-white);
+  margin: 0px 0px 32px 0px;
+}
+
+.left-btn,
+.right-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+@media (max-width: 1024px) {
+  .left-btn {
+  transform: translateX(-100%);
+  }
+}
+
+@media (max-width: 1024px) {
+  .right-btn {
+  transform: translateX(100%);
+  }
+}
+
+.left-btn  { left: 80px; }
+.right-btn { right: 80px; }
+
+.carousel-indicator {
+display: flex;
+justify-content: center;
+gap: 24px;
+margin-top: 32px;
+}
+
+.dot {
+width: 12px;
+height: 12px;
+border-radius: 50%;
+background-color: var(--secondary-light-grey);
+transition: background-color 0.3s ease ;
+}
+
+.dot.active {
+background-color: var(--primary-blue);
+}
+
+/*-----------Contacts-------------*/
+
+#contacts {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 32px;
+padding: 40px 0;
+box-sizing: border-box;
+}
+
+.contacts-title {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+  margin: 0;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.contacts-word-1 {
+  color: var(--primary-dark-blue);
+}
+
+.contacts-word-2 {
+  color: var(--primary-blue);
+}
+
+.contacts-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .contacts-content {
+    flex-direction: column-reverse;
+    gap: 24px;
+  }
+}
+
+.map {
+width: 623px;
+}
+
+.map img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 32px;
+}
+
+.contact-form-container {
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+max-width: 423px;
+height: 481px;
+background-color: var(--primary-dark-blue);
+padding: 32px;
+border-radius: 24px;
+box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+box-sizing: border-box;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .contact-form-container {
+    width: 560px;       /* 🔄 тепер форма така ж широка, як карта */
+    max-width: 100%;    /* 🔄 але не більше ширини екрану */
+    height: auto;       /* 🔄 висота автоматична */
+    margin: 0;     /* 🔄 центрування */
+  }
+
+  .contact-form input {
+    width: 100%;        /* 🔄 інпути розтягуються на всю ширину форми */
+  }
+
+  .contact-submit-btn {
+    width:300px;        /* 🔄 кнопка теж на всю ширину */
+  }
+}
+
+.contact-form-title {
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  text-align: center;
+  padding: 32px 16px 32px 16px;
+  margin: 0;
+  color: var(--primary-white);
+}
+
+.contact-form-word-2 {
+  color: var(--primary-blue);
+}
+
+.contact-form input {
+display: block;
+width: 310px;
+padding: 14px 32.85px;
+margin-top: 16px;
+font-size: 13px;
+text-align: left;
+border: 2px solid var(--secondary-light-grey);
+border-radius: 32px;
+box-sizing: border-box;
+outline: none;
+background-color: var(--primary-dark-blue);
+}
+
+.contact-form input::placeholder {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--primary-white);
+}
+
+.contact-form input:focus {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 2px rgba(0,123,255,0.2);
+  color: var(--primary-white);
+}
+
+.contact-submit-btn {
+  margin-top: 16px;
+  padding: 16px 32px 16px 32px;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary-white);
+  background-color: var(--primary-blue);
+  border: none;
+  border-radius: 32px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  gap: 10px;
+}
+
+.contact-submit-btn:hover {
+  background-color: #1A5FCC;
+}
+
+.contact-form p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--secondary-light-grey);
+  margin: 16px 32px 0 32px;
+  text-align: center;
+}
+
+.contact-form a {
+  color: var(--secondary-light-grey);
+  text-decoration: underline;
+}
+
+/*------------------------Footer-----------------------------*/
+
+footer {
+  position: relative;
+}
+
+.footer-general-container {
+  position: relative;
+  overflow: hidden;
+  height: 278px;
+  background-color: var(--primary-dark-blue);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 100px;
+  gap: 20%;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+@media (max-width: 1024px) {
+ .footer-general-container {
+    gap: 10%;
+  }
+}
+
+.footer-logo {
+  display: flex;
+  align-items: flex-start;
+  width: 83px;
+  height: 42px;
+  margin-bottom: 140px ;
+  z-index: 1;
+}
+
+.footer-logo h1 {
+   margin: 0;
+    padding: 0;
+    font-size: 22px;
+    color: var(--primary-blue);
+    font-family: "Play", sans-serif;
+    font-weight: 700;
+    z-index: 1;
+}
+
+.footer-nav-container {
+   margin-bottom: 50px;
+   z-index: 1;
+}
+
+.footer-nav-container nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+}
+
+footer nav a, .footer-nav-container a {
+  color: var(--primary-white); 
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  z-index: 1;
+}
+
+.footer-contact-us {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 192px;
+  gap: 16px;
+  z-index: 1;
+}
+
+.footer-contact-us a {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--primary-white);
+  text-decoration: none;
+  z-index: 1;
+}
+
+.footer-soc-media {
+  display: flex;
+  justify-content: flex-start;
+  gap: 24px;
+  z-index: 1;
+}
+
+.footer-soc-media svg {
+  height: 42px;
+  width: 42px;
+  cursor: pointer;
+  color: var(--primary-white);
+  z-index: 1;
+}
+
+.privacy-policy-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 16px;
+  margin-bottom: 120px;
+  z-index: 1;
+}
+
+.privacy-policy-container a {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  text-decoration: none;
+  color: var(--primary-white);
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.data-protected {
+font-family: "Roboto", sans-serif;
+ font-weight: 400;
+ font-size: 13px;
+ color: var(--secondary-light-grey);
+ white-space: nowrap;
+ z-index: 1;
+}
+
+.footer-image {
+   position: absolute;
+  top: 20px;
+  right: 0;
+  height: 300px;
+  width: auto;
+  z-index: 1;
+  display: block;
+  object-fit: contain;
+}
+    
+/*figures in footer*/
+
+.figures-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: flex-end;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 1;
+  overflow: hidden;
+  justify-content: flex-start;
+}
+
+.figure-1 {
+  width: 420px;
+  height: auto;
+  opacity: 60%;
+  position: absolute;
+  left: -60px;
+  bottom: -20px;
+  transform: none;
+}
+
+.figure-2 {
+  width: 420px;
+  height: auto;
+  opacity: 60%;
+  position: absolute;
+  transform: none;
+  left: 180px;
+  bottom: 110px;
+}
+
+.figure-3 {
+  width: 420px;
+  height: auto;
+  opacity: 60%;
+  position: absolute;
+  transform: none;
+  left: 460px;
+  top: 10px;
+}
+
+.figure-4 {
+  width: 420px;
+  height: auto;
+  opacity: 60%;
+  position: absolute;
+  transform: none;
+  left: 650px;
+  bottom: 150px;
+}
+
+.figure-5 {
+  width: 420px;
+  height: auto;
+  opacity: 60%;
+  position: absolute;
+  transform: none;
+  left: 900px;
+  bottom: 130px;
+}
+
+.figure-6 {
+  width: 420px;
+  height: auto;
+  opacity: 70%;
+  position: absolute;
+  transform: none;
+  left: 800px;
+  bottom: 86px;
+}
+
+
+.figures-container svg path {
+  stroke: var(--secondary-dark-blue);
+  stroke-width: 4;
+  fill: none
+}
+
+.mob-footer-general-container {
+  display: none;
+}
+
+/*--------------mobile---------------*/
+
+
+@media (max-width: 430px) {
+  body { overflow-x: hidden;}
+
+  /*Header*/
+
+  header {
+    position: absolute;
+    background-color: transparent;
+    max-width: 100vw;
+    backdrop-filter: none;
+  }
+
+  .burger-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  header nav, .soc-media {
+    display: none;
+  }
+
+  /*------Hero------*/
+
+  .hero {
+    height: 620px;
+    background-size: cover;
+    background-position: 70% 290%;
+    background-size: 360%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+  }
+
+  .hero-content {
+    height: 100px;
+    margin: -66px 0 0 0;
+    padding: 0 16px 0 16px;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-logo {
+    font-size: 64px;
+    line-height: 1.1;
+  }
+
+  .note {
+    font-size: 16px;
+    width: 300px;
+  }
+
+/*------About-us section------*/
+
+  .about-us-title {
+    max-width: 100vw;
+    line-height: 0.7;
+    margin-top: 0;
+  }
+
+  .about-us-title .line-1 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 32px;
+  }
+
+  .word-dark {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 32px;
+  }
+
+  .word-light {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+  }
+
+.about-us-text-content {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+  .about-us-image-wrapper {
+    display: none;
+  }
+
+  /*------Why-Us------*/
+
+  #why-us {
+    min-height: auto; /* секція росте під контент */
+    height: auto;  /* прибираємо фіксовану висоту */
+    padding: 40px 16px; /* додаємо внутрішні відступи */
+    background-size: cover; /* фон розтягується */
+    background-position: center top; /* залишаємо вирівнювання */
+    background-repeat: no-repeat; /* фон не повторюється */
+    background-position: 46% top;
+  }
+
+  .why-us-title {
+    margin-bottom: 16px;
+  }
+
+  .why-us-line-1, .why-us-line-2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 32px;
+    margin: 0;
+    padding: 0;
+}
+
+  .boxes-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .box-1, .box-2, .box-3 {
+    width: 100%;
+    max-width: 100%;
+    height: 181px;
+  }
+
+  /*------Our procedures------*/
+
+.procedures-title {
+  text-align: center;
+  white-space: nowrap;
+  max-width: 100%;
+  margin-bottom: 24px;
+}
+
+.procedures-word-1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: clamp(24px, 8vw, 32px);
+  color: var(--primary-dark-blue);
+}
+
+.procedures-word-2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: clamp(24px, 8vw, 32px);
+  color: var(--primary-blue);
+}
+
+ #procedures {
+    height: auto; /* секція росте під контент */
+    padding: 40px 0; /* відступи зверху/знизу */
+    background-color: var(--primary-white);
+  }
+
+  .procedures-cards-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;  /* картки в ряд */
+    scroll-snap-type: x mandatory; /* при "свайпі" картки прилипатимуть */
+    -webkit-overflow-scrolling: touch; /* плавний скрол на iOS */
+    gap: 20px;
+    overflow-x: auto;
+    box-sizing: border-box;
+    width: calc(100% - 40px);
+    /* Приховуємо скролбар для Chrome, Safari та Opera */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    /* Приховуємо для IE, Edge та Firefox */
+    -ms-overflow-style: none;  /* IE та Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .procedure-card-1,
+  .procedure-card-2,
+  .procedure-card-3 {
+    flex: 0 0 calc(100% - 40px); /* картка займає ширину екрану мінус відступи */
+    scroll-snap-align: start;   /* картка прилипає по центру */
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    border-radius: 0 16px 0 16px;
+    overflow: hidden;
+    background-color: var(--primary-white); /* фон картки = фон секції */
+  }
+
+  .procedure-card-1 img,
+  .procedure-card-2 img,
+  .procedure-card-3 img {
+    display: block;
+    width: 100%;
+    height: auto;
+    width: 100%;
+    height: auto;
+    max-width: none;
+  }
+
+  /* Hiding the arrows on mobile */
+  .left-btn,
+  .right-btn {
+    display: none;
+  }
+
+  .carousel-indicator {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--secondary-light-grey);
+    transition: background-color 0.3s ease;
+  }
+
+  .dot.active {
+    background-color: var(--primary-blue);
+  }
+  
+  /*------Contacts section------*/
+
+  .contact-form-container {
+    width: calc(100% - 40px);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .map {
+    border-radius: none;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/*------Footer section------*/
+
+.footer-general-container {
+  display: none;
+}
+
+  .mob-footer-general-container {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  flex-direction: column;
+  height: auto;
+  background-color: var(--primary-dark-blue);
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 20px 0 20px;
+  gap: 16px;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.mob-footer-logo {
+  display: flex;
+  align-items: flex-start;
+  width: 83px;
+  height: 42px;
+  margin-bottom: 42px ;
+  z-index: 1;
+}
+
+.mob-footer-logo a {
+  text-decoration: none;
+}
+
+.mob-footer-logo h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 22px;
+  color: var(--primary-blue);
+  font-family: "Play", sans-serif;
+  font-weight: 700;
+  z-index: 1;
+}
+
+.mob-footer-nav-container {
+   margin: 66px;
+   gap: 16px;
+   z-index: 1;
+}
+
+.mob-footer-nav-container nav ul {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+}
+
+footer nav a, .mob-footer-nav-container a {
+  color: var(--primary-white); 
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  z-index: 1;
+}
+
+.mob-data-soc-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 16px;
+  margin-bottom: 120px;
+  z-index: 1;
+}
+
+.mob-data-soc-container a {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  text-decoration: none;
+  color: var(--primary-white);
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.mob-footer-soc-media {
+  display: flex;
+  justify-content: flex-start;
+  gap: 24px;
+  z-index: 1;
+}
+
+.mob-footer-soc-media svg {
+  height: 42px;
+  width: 42px;
+  cursor: pointer;
+  color: var(--primary-white);
+  z-index: 1;
+}
+
+.mob-data-protected {
+font-family: "Roboto", sans-serif;
+ font-weight: 400;
+ font-size: 13px;
+ text-align: center;
+ color: var(--secondary-light-grey);
+ white-space: nowrap;
+ z-index: 1;
+}
+    
+/*figures in footer*/
+
+.mob-figures-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: flex-end;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 1;
+  overflow: hidden;
+  justify-content: flex-start;
+}
+
+.figure-1 {
+  width: 420px;
+  height: auto;
+  opacity: 60%;
+  position: absolute;
+  left: -60px;
+  bottom: -20px;
+  transform: none;
+}
+
+.figure-2 {
+  width: 420px;
+  height: auto;
+  opacity: 60%;
+  position: absolute;
+  transform: none;
+  left: 180px;
+  bottom: 110px;
+}
+
+.figure-3 {
+  width: 420px;
+  height: auto;
+  opacity: 60%;
+  position: absolute;
+  transform: none;
+  left: 460px;
+  top: 10px;
+}
+
+.figure-4 {
+  width: 420px;
+  height: auto;
+  opacity: 60%;
+  position: absolute;
+  transform: none;
+  left: 650px;
+  bottom: 150px;
+}
+
+.figure-5 {
+  width: 420px;
+  height: auto;
+  opacity: 60%;
+  position: absolute;
+  transform: none;
+  left: 900px;
+  bottom: 130px;
+}
+
+.figure-6 {
+  width: 420px;
+  height: auto;
+  opacity: 70%;
+  position: absolute;
+  transform: none;
+  left: 800px;
+  bottom: 86px;
+}
+
+
+.figures-container svg path {
+  stroke: var(--secondary-dark-blue);
+  stroke-width: 4;
+  fill: none
+}
+}
+
+/*--------- Burger menu styles ---------*/
+
+/* Основний контейнер меню */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-white); /* Темний фон як у футері */
+  z-index: 15; /* Поверх усіх елементів */
+  padding: 16px 20px;
+  box-sizing: border-box;
+  
+  /* Анімація появи */
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Клас, який ми будемо додавати через JS */
+.mobile-menu.is-open {
+  transform: translateX(0);
+}
+
+/* Кнопка закриття */
+.menu-close-btn {
+  position: absolute;
+  top: 7px;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.menu-close-btn svg path {
+  stroke: var(--primary-dark-blue) !important;
+}
+
+/* Навігація всередині */
+.mobile-menu-nav {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: 100%;
+  margin-top: 0;
+}
+
+/* Логотип у меню */
+.mobile-menu-logo {
+  display: flex;
+  align-items: flex-start;
+  width: 83px;
+  height: 42px;
+  margin-bottom: 32px;
+  margin-top: 0;
+  z-index: 1;
+}
+
+.mobile-menu-logo a {
+  text-decoration: none;
+}
+
+.mobile-menu-logo h1 {
+  font-family: "Play", sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--primary-blue);
+  margin: 0;
+}
+
+/* Список посилань */
+.mobile-menu-nav ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 16px;
+}
+
+.mobile-menu-nav a {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--primary-dark-blue);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+/* Контейнер соцмереж */
+.mobile-menu-soc-media {
+  margin-top: 16px;
+  display: flex;
+  gap: 24px;
+}
+
+.mobile-menu-soc-media svg {
+  fill: var(--primary-dark-blue);
+}
